@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This file is part of the chapter 3 challenge in using control structures
+# This file will generate a random number between 1-10 and based on that number print out a statement
+
+random=$(( RANDOM % 5 ))
+
+case $random in
+  0) echo "Womp Womp";;
+  1) echo "Bottom of the barrel";;
+  2) echo "Thats better";;
+  3) echo "Good work";;
+  4) echo "Excellent";;
+  5) echo "Perfection";;
+esac

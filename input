@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+echo "Using read to gather input from user"
+
+# Stores the response in the variable name
+echo "What is your name?"
+read name 
+
+# Silently take input with the -s option
+echo "Enter your password:"
+read -s pass
+
+# Can do it all in one line with the -p option
+read -p "What is your favorite animal? " animal
+
+echo name: $name, pass: $pass, animal: $animal
+
+
+# Using select for gathering input
+select food in "hotdog" "burger" "chips" "tomatoes" "quit"
+do 
+  case $food in
+      hotdog) echo "Gotta love the sausages, you picked a hotdog.";;
+      burger) echo "My fave, thick patty and some pickes on that burgey.";;
+      chips) echo "A good old snack on some chippies.";;
+      tomatoes) echo "Womp Womp, your snack is tomatoes.";;
+      quit) break;;
+      *) echo "Not sure what that is :(";;
+      esac
+done

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+echo "While Loop:"
+
+declare -i n=0
+while ((n<3))
+do  
+  echo "n:$n"
+  ((n++))
+done
+
+echo -e "\nUntil Loop:"
+
+declare num=3
+until ((num==0))
+do
+  echo "Value = $num"
+  ((num--))
+done
+
+echo -e "\nFor Loop"
+for i in {1..10..2}
+do
+  echo $i
+done
+
+echo -e "\nFor Loop with Array"
+declare -a sports=("Hockey" "Baseball" "Basketball" "Rugby")
+for sport in ${sports[@]}
+do
+  echo $sport
+done
+
+echo -e "\nCase statements"
+animal="puppy"
+case $animal in 
+  bird|chick) echo "Avian";;
+  dog|puppy) echo "Canine";;
+  cat|kitten) echo "Feline";;
+  *) echo "No match";;
+esac

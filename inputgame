@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+guess(){
+  echo "Entered guessing game"
+}
+
+coinflip(){
+  echo "Entered coinflip game"
+}
+
+roledice(){
+  local -i d1=$((1 + RANDOM % 6))
+  local -i d2=$((1 + RANDOM % 6))
+
+  total=$((d1+d2))
+  printf "The dice roll resulted in %s" $total
+  gameselection
+}
+
+# Create the main function of the script that will continuously prompt the user inbetween selections. 
+gameselection(){
+  select game in "Guessing Game" "Flip a Coin" "Dice Roll" "Exit"
+  do
+    case $game in
+      "Guessing Game") guess;;
+      "Flip a Coin") coinflip;;
+      "Dice Roll") roledice;;
+      "Exit") break;;
+      *) echo "No game exists";;
+    esac
+  done
+}
+
+# Entry point into the program
+echo "Select an Game!"
+gameselection

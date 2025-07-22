@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+greeting(){
+  echo "Hello there $1! What a nice $2."
+}
+
+echo "I will now greet you..."
+greeting Dylan afternoon
+greeting everyone evening
+
+# $@ refers to all the arguments given to a function
+numberitems(){
+  declare -i i=1
+  for item in "$@"
+  do
+    echo $i: "$item"
+    ((i++))
+  done
+
+  echo "This numbering was done with the function: $FUNCNAME!"
+}
+
+numberitems pine birch maple spruce
+
